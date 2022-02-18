@@ -24,7 +24,7 @@ def _get_plugin_results(line: str) -> set[str]:
             {
                 (
                     (
-                        "1:0 T100 found deprecated typing usage, see more"
+                        "1:0 T100 found deprecated typing usage, see more "
                         + "detail: https://www.python.org/dev/peps/pep-0585/"
                     )
                 ),
