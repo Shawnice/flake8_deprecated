@@ -16,21 +16,23 @@ def _get_plugin_results(line: str) -> set[str]:
     "typing_content, expected_lint_error",
     [
         (
-                "foo = list[int]\nbar = dict[str, str]",
-                set(),
+            "foo = list[int]\nbar = dict[str, str]",
+            set(),
         ),
         (
-                "foo = typing.List[int]\nbar = typing.Dict[str, str]",
-                {
+            "foo = typing.List[int]\nbar = typing.Dict[str, str]",
+            {
+                (
                     (
-                            "1:0 T100 found deprecated typing usage, see more detail: "
-                            + "https://www.python.org/dev/peps/pep-0585/"
-                    ),
-                    (
-                            "2:0 T100 found deprecated typing usage, see more detail: "
-                            + "https://www.python.org/dev/peps/pep-0585/"
-                    ),
-                },
+                        "1:0 T100 found deprecated typing usage, see more "
+                        + "detail: https://www.python.org/dev/peps/pep-0585/"
+                    )
+                ),
+                (
+                    "2:0 T100 found deprecated typing usage, see more detail: "
+                    + "https://www.python.org/dev/peps/pep-0585/"
+                ),
+            },
         ),
     ],
 )

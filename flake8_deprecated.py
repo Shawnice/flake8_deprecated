@@ -6,6 +6,8 @@ import visitor
 
 
 class Plugin:
+    """Class defining plugin details."""
+
     name: str = __name__
     version: str = importlib.metadata.version(__name__)
 

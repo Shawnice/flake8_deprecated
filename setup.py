@@ -36,7 +36,7 @@ setuptools.setup(
     install_requires=requires,
     entry_points={
         "flake8.extension": [
-            "ASY = flake8_async:Plugin",
+            "DEP = flake8_deprecated:Plugin",
         ],
     },
 )

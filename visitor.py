@@ -12,7 +12,7 @@ class Visitor(ast.NodeVisitor):
     def __init__(self) -> None:
         self.errors: list[ErrorType] = []
 
-    def visit_Assign(self, node: ast.Assign) -> None:
+    def visit_Assign(self, node: ast.Assign) -> None:  # noqa: N802
         self.errors.extend(check_deprecated_typing(node))
         self.generic_visit(node)
 
