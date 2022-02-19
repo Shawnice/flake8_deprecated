@@ -36,7 +36,7 @@ setuptools.setup(
     install_requires=requires,
     entry_points={
         "flake8.extension": [
-            "DEP = flake8_deprecated:Plugin",
+            "T100 = flake8_deprecated:Plugin",
         ],
     },
 )
