@@ -7,10 +7,13 @@ on:
 
 jobs:
   ci-pipeline:
-    - uses: .github/workflows/setup-python-env.yml
-    - name: Run flake8
-      if: ${{ steps.filter.outputs.py_modified == 'true' }}
-      run: flake8 ${{ steps.filter.outputs.py_modified_files }}
-    - name: Run pytest
-      if: ${{ steps.filter.outputs.py_modified == 'true' }}
-      run: pytest tests
+    runs-on: ubuntu-latest
+    steps:
+      - id: composite_action
+        uses: ./github/workflows/setup-python-env
+      - name: Run flake8
+        if: ${{ steps.composite_action.outputs.py_modified == 'true' }}
+        run: flake8 ${{ steps.composite_action.outputs.py_modified_files }}
+      - name: Run pytest
+        if: ${{ steps.composite_action.outputs.py_modified == 'true' }}
+        run: pytest tests
