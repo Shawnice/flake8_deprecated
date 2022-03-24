@@ -9,6 +9,8 @@ jobs:
   ci-pipeline:
     runs-on: ubuntu-latest
     steps:
+      - name: Checkout
+        uses: actions/checkout@v3
       - id: composite_action
         uses: ./.github/setup-python-env
       - name: Run flake8
