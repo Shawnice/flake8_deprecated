@@ -10,7 +10,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - id: composite_action
-        uses: ./github/setup-python-env
+        uses: ./.github/setup-python-env
       - name: Run flake8
         if: ${{ steps.composite_action.outputs.py_modified == 'true' }}
         run: flake8 ${{ steps.composite_action.outputs.py_modified_files }}
