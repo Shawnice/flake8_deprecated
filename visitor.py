@@ -36,3 +36,4 @@ def _use_deprecated_typing(node: ast.Subscript) -> bool:
             if assign_value.id in DEPRECATED_TYPING:
                 return True
         return False
+
